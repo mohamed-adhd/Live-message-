@@ -5,7 +5,9 @@ public partial class MainMenuViewModel : ViewModelBase
 {
     private readonly MainWindowViewModel _main;
     [ObservableProperty]
-    private bool is_invite_open = false;
+    private bool is_invite_open = false,is_setting_open = false;
+
+   
 
     public MainMenuViewModel(MainWindowViewModel main)
     {
@@ -28,6 +30,16 @@ public partial class MainMenuViewModel : ViewModelBase
     private void close_invite()
     {
         Is_invite_open = false;
+    }
+    [RelayCommand]
+    private void open_setting()
+    {
+        Is_setting_open = true;
+    }
+    [RelayCommand]
+    private void close_setting()
+    {
+        Is_setting_open = false;
     }
 }
 

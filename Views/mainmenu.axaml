@@ -10,9 +10,10 @@
                    VerticalAlignment="Center"/>
     
         <Button Content=" logout " HorizontalAlignment="Center" Command="{Binding GoToLoginCommand}"></Button>
-        <Button Content="settings" HorizontalAlignment="Left" Command="{Binding open_inviteCommand}"/>
+        <Button Content="add" HorizontalAlignment="Left" Command="{Binding open_inviteCommand}"/>
+        <Button Content="settings" HorizontalAlignment="Right" Command="{Binding open_settingCommand}"/>
         <Border IsVisible="{Binding Is_invite_open}" Background="#99505010">
-            <Border Width="400" Height="720" HorizontalAlignment="Right" VerticalAlignment="Center" CornerRadius="12" Padding="20"> 
+            <Border Background="DarkRed" Width="400" Height="720" HorizontalAlignment="Right" VerticalAlignment="Center" CornerRadius="12" Padding="20"> 
                     <StackPanel>
                         <TextBlock Text="adding friends!" FontSize="12"></TextBlock>
                         <TextBox PlaceholderText="username"></TextBox>
@@ -24,8 +25,29 @@
         
                     </StackPanel>
         </Border>
-        </Border>
         
+            
+            
+            
+        </Border>
+        <Border IsVisible="{Binding Is_setting_open}" Background="#99505010">
+            <Border Background="DarkRed" Width="1180" Height="700" HorizontalAlignment="Center" VerticalAlignment="Center" CornerRadius="12" Padding="20"> 
+                <StackPanel>
+                    <TextBlock Text="settings!" FontSize="12"></TextBlock>
+                    <TextBox PlaceholderText="username"></TextBox>
+                    <Button Content="X" Command="{Binding close_settingCommand}"></Button>
+        
+        
+        
+        
+        
+                </StackPanel>
+            </Border>
+        
+            
+            
+            
+        </Border>
         
         
         
