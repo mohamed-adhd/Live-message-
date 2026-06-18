@@ -9,5 +9,8 @@
                    HorizontalAlignment="Center"
                    VerticalAlignment="Center"/>
         <Button Content="go to login" Command="{Binding GoToLoginCommand}"/>
+        
     </StackPanel>
 </UserControl>
+
+<!-- so i googled how to write comments in axml files just to write this , gawd dayum i m lonely af , and c# is a bitch-->

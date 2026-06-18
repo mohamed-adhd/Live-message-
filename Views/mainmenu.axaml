@@ -10,5 +10,6 @@
                    VerticalAlignment="Center"/>
     
         <Button Content=" logout " HorizontalAlignment="Center" Command="{Binding GoToLoginCommand}"></Button>
+        <Button Content="settings" HorizontalAlignment="Left" Command="{Binding GoToLoginCommand}"/>
     </StackPanel>
 </UserControl>
