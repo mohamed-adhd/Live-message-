@@ -90,3 +90,4 @@
 /home/bro/my-creations/live-message-app/obj/Debug/net10.0/live-message-app.pdb
 /home/bro/my-creations/live-message-app/obj/Debug/net10.0/live-message-app.genruntimeconfig.cache
 /home/bro/my-creations/live-message-app/obj/Debug/net10.0/ref/live-message-app.dll
+/home/bro/my-creations/live-message-app/obj/Debug/net10.0/live-message-app.sourcelink.json
