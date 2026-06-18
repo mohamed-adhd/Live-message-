@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "s0UNzo6aHWg=",
+  "dgSpecHash": "V+YAVUBciHU=",
   "success": true,
   "projectFilePath": "/home/bro/my-creations/live-message-app/live-message-app.csproj",
   "expectedPackageFiles": [
@@ -34,6 +34,7 @@
     "/home/bro/.nuget/packages/skiasharp.nativeassets.macos/3.119.4/skiasharp.nativeassets.macos.3.119.4.nupkg.sha512",
     "/home/bro/.nuget/packages/skiasharp.nativeassets.webassembly/3.119.4/skiasharp.nativeassets.webassembly.3.119.4.nupkg.sha512",
     "/home/bro/.nuget/packages/skiasharp.nativeassets.win32/3.119.4/skiasharp.nativeassets.win32.3.119.4.nupkg.sha512",
+    "/home/bro/.nuget/packages/system.io.pipelines/8.0.0/system.io.pipelines.8.0.0.nupkg.sha512",
     "/home/bro/.nuget/packages/tmds.dbus.protocol/0.92.0/tmds.dbus.protocol.0.92.0.nupkg.sha512",
     "/home/bro/.nuget/packages/microsoft.aspnetcore.app.ref/10.0.8/microsoft.aspnetcore.app.ref.10.0.8.nupkg.sha512"
   ],

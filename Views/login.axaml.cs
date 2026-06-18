@@ -1,6 +1,11 @@
+using Avalonia.Controls;
+
 namespace live_message_app.Views;
 
-public class login_axaml
+public partial class LoginView : UserControl
 {
-    
+    public LoginView()
+    {
+        InitializeComponent();
+    }
 }

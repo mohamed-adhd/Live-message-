@@ -1,0 +1,10 @@
+<UserControl
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    x:Class="live_message_app.Views.register">
+
+    <TextBlock Text="register"
+               HorizontalAlignment="Center"
+               VerticalAlignment="Center"/>
+
+</UserControl>

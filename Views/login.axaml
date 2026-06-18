@@ -1,0 +1,16 @@
+<UserControl
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    x:Class="live_message_app.Views.LoginView">
+
+    <StackPanel>
+    <TextBlock Text="LOGIN PAGE"
+               HorizontalAlignment="Center"
+               VerticalAlignment="Center"/>
+    
+    
+    <Button Content="go to register" Command="{binding gotoregisterCommand}"></Button>
+    
+    
+    </StackPanel>
+</UserControl>

@@ -31,5 +31,11 @@ build_property.EnableCodeStyleSeverity =
 [/home/bro/my-creations/live-message-app/App.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
 
+[/home/bro/my-creations/live-message-app/Views/login.axaml]
+build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
+
 [/home/bro/my-creations/live-message-app/Views/MainWindow.axaml]
+build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
+
+[/home/bro/my-creations/live-message-app/Views/register.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml

@@ -1,6 +1,12 @@
+using System.Threading;
+using Avalonia.Controls;
+
 namespace live_message_app.Views;
 
-public class register_axaml
+public partial class register : UserControl
 {
-    
+    public register()
+    {
+        InitializeComponent();
+    }
 }

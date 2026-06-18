@@ -12,6 +12,7 @@
         </Grid.ColumnDefinitions>
         <TextBlock Text="chats" VerticalAlignment="Top" HorizontalAlignment="Center" Grid.Column="0" FontSize="30"/>
         <TextBlock Text="users" VerticalAlignment="Top" HorizontalAlignment="Center" Grid.Column="1"  FontSize="30"/>
+        <ContentControl Content="{Binding CurrentPage}"/>
     </Grid>
     
     
