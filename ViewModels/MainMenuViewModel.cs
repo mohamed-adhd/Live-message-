@@ -1,5 +1,7 @@
 using System.Collections.Generic;
 using Tmds.DBus.Protocol;
+using live_message_app.Services;
+using Message = Tmds.DBus.Protocol.Message;
 
 namespace live_message_app.ViewModels;
 using CommunityToolkit.Mvvm.ComponentModel;
@@ -9,16 +11,17 @@ public partial class MainMenuViewModel : ViewModelBase
     private readonly MainWindowViewModel _main;
     [ObservableProperty]
     private bool is_invite_open = false,is_setting_open = false;
+    public readonly database db;
 
-    [ObservableProperty] private List<Message> _messagelist;
-
-    private List<Message> messages = new();
-   
+    private List<Messagestruct> Messageslist = new();
+    private List<user> flist = new();
 
     public MainMenuViewModel(MainWindowViewModel main)
     {
+        db = new Services.database();
         _main = main;
-        
+        Messageslist = db.Fetchmessages(_main.Id);
+        flist = db.Fetchfriends(Messageslist, _main.Id);
     }
     
     

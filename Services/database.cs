@@ -6,7 +6,7 @@ using Microsoft.Data.Sqlite;
 namespace live_message_app.Services;
 using static Console;
 
-public struct Message
+public struct Messagestruct
 {
     public string Text;
     public int from_id;
@@ -83,9 +83,9 @@ public class database
         return temp;
 
     }
-    public List<Message> Fetchmessages(int id)
+    public List<Messagestruct> Fetchmessages(int id)
     {
-        List<Message> tempo=new();
+        List<Messagestruct> tempo=new();
         using var con = new SqliteConnection(path);
         con.Open();
         var cmd = con.CreateCommand();
@@ -95,7 +95,7 @@ public class database
         using var ls =cmd.ExecuteReader()!;
         while (ls.Read())
         {
-            Message temp;
+            Messagestruct temp;
             temp.from_id = ls.GetInt32(0);
             temp.to_id = ls.GetInt32(1);
             temp.Text = ls.GetString(2);
@@ -106,11 +106,11 @@ public class database
         return tempo;
     }
 
-    public List<user> Fetchfriends(List<Message> mlist,int id)
+    public List<user> Fetchfriends(List<Messagestruct> mlist,int id)
     {
         List<user> friends = new();
         List<int> temp = new();
-        foreach (Message m in mlist)
+        foreach (Messagestruct m in mlist)
         {
             if (m.from_id == id)
             {
