@@ -18,9 +18,9 @@ public struct Messagestruct
 
 public struct user
 {
-    public int id;
-    public string name;
-    public string username;
+    public int id{ get; set; }
+    public string name{ get; set; }
+    public string username{ get; set; }
 }
 public class database
 {
@@ -38,7 +38,8 @@ public class database
 
         using var res = cmd.ExecuteReader()!;
         Console.WriteLine($"DEBUG: user='{username}' pass='{passwd}' count={res}");
-        return res.GetInt32(0);
+        if (res.Read()) return res.GetInt32(0);
+        return -1;
     }
 
     public bool add(string username, string name, string password, string gmail)
@@ -77,7 +78,7 @@ public class database
         {
             temp.id = id;
             temp.name=res.GetString(1);
-            temp.username=res.GetString(1);
+            temp.username=res.GetString(2);
         }
 
         return temp;
@@ -89,7 +90,7 @@ public class database
         using var con = new SqliteConnection(path);
         con.Open();
         var cmd = con.CreateCommand();
-        cmd.CommandText = "SELECT * FROM chats WHERE from_di=$f OR to_id=$t;";
+        cmd.CommandText = "SELECT * FROM chats WHERE from_id=$f OR to_id=$t;";
         cmd.Parameters.AddWithValue("$f", id);  
         cmd.Parameters.AddWithValue("$t", id);  
         using var ls =cmd.ExecuteReader()!;

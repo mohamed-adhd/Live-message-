@@ -16,7 +16,19 @@
             </Grid>
                     <TextBox Grid.Row="1" Margin="12,0,12,8" PlaceholderText="Search..." Background="#0D1829" CornerRadius="8" Padding="10,8"/>
                     <ScrollViewer Grid.Row="2">
-                        <ItemsControl ItemsSource="{Binding Flist}" ></ItemsControl>
+                        <ItemsControl ItemsSource="{Binding Flist}" >
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate>
+                                    <StackPanel>
+                                        <TextBlock Text="{Binding username}" FontWeight="Bold"/>
+                                        <TextBlock Text="{Binding name}" Foreground="Gray"/>
+                                    </StackPanel>
+                                </DataTemplate>
+                                
+                                
+                                
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
                         
                     </ScrollViewer>
                     <Grid Grid.Row="3" Margin="12,8" ColumnDefinitions="Auto,*,Auto"></Grid>
