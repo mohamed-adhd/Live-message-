@@ -10,9 +10,21 @@
             <Border Grid.Column="0" Background="#16213E">
                 <Grid RowDefinitions="Auto,Auto,*,Auto">
             <Grid Grid.Row="0" Margin="12,12,12,8" ColumnDefinitions="*,Auto,Auto">
-            <TextBlock Grid.Column="0" Text="messages"></TextBlock>
-        <Button Content=" logout " HorizontalAlignment="Center" Command="{Binding GoToLoginCommand}"></Button>
-        <Button Content="add" HorizontalAlignment="Left" Command="{Binding open_inviteCommand}"/>
+            <TextBlock Grid.Column="0" Text="messages" FontSize="16" FontWeight="Medium"></TextBlock>
+            <Button Grid.Column="1" Width="32" Height="32" CornerRadius="8" Background="#1A2744" Command="{Binding open_inviteCommand}" Content="+"/>
+            <Button Grid.Column="2" Width="32" Height="32" CornerRadius="8" Background="#1A2744" Command="{Binding open_inviteCommand}" Content="⚙"/>
+            </Grid>
+                    <TextBox Grid.Row="1" Margin="12,0,12,8" PlaceholderText="Search..." Background="#0D1829" CornerRadius="8" Padding="10,8"/>
+                    <ScrollViewer Grid.Row="2">
+                        <ItemsControl ItemsSource="{Binding }"></ItemsControl>
+                        
+                    </ScrollViewer>
+                    <Grid Grid.Row="3" Margin="12,8" ColumnDefinitions="Auto,*,Auto"></Grid>
+                </Grid>
+                </Grid>
+            </Border>
+    
+                <Button Content=" logout " HorizontalAlignment="Center" Command="{Binding GoToLoginCommand}"></Button>
         <Button Content="settings" HorizontalAlignment="Right" Command="{Binding open_settingCommand}"/>
         <Border IsVisible="{Binding Is_invite_open}" Background="#99505010">
             <Border Background="DarkRed" Width="400" Height="720" HorizontalAlignment="Right" VerticalAlignment="Center" CornerRadius="12" Padding="20"> 
