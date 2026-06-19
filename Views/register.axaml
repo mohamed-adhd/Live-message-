@@ -4,13 +4,17 @@
     xmlns:vm="using:live_message_app.ViewModels"
     x:Class="live_message_app.Views.register"
     x:DataType="vm:RegisterViewModel">
-    <StackPanel>
-        <TextBlock Text="register"
-                   HorizontalAlignment="Center"
-                   VerticalAlignment="Center"/>
+    <Grid>
         <Button Content="go to login" Command="{Binding GoToLoginCommand}"/>
-        
-    </StackPanel>
+        <StackPanel>
+            <TextBox PlaceholderText="name" Background="DarkGray"></TextBox>
+            <TextBox PlaceholderText="username" Background="DarkGray"></TextBox>
+            <TextBox PlaceholderText="password" Background="DarkGray"></TextBox>
+            <TextBox PlaceholderText="confirm password" Background="DarkGray"></TextBox>
+            <TextBox PlaceholderText="gmail" Background="DarkGray"></TextBox>
+            <Button Content="register" Command="{Binding }"></Button>
+        </StackPanel>
+    </Grid>
 </UserControl>
 
 <!-- so i googled how to write comments in axml files just to write this , gawd dayum i m lonely af , and c# is a bitch-->
