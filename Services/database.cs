@@ -18,23 +18,23 @@ public struct Message
 public class database
 {
     private string path = "Data Source=/home/bro/my-creations/live-message-app/databases/admin.db ";
-    public bool check_login(string username, string passwd)
+    public int check_login(string username, string passwd)
     {
         if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(passwd))
-            return false;
+            return -1;
         using var con = new SqliteConnection(path);
         con.Open();
         var cmd = con.CreateCommand();
-        cmd.CommandText="SELECT COUNT(*) FROM users WHERE username=$usr AND password=$psd;";
+        cmd.CommandText="SELECT id FROM users WHERE username=$usr AND password=$psd;";
         cmd.Parameters.AddWithValue("$usr", username);
         cmd.Parameters.AddWithValue("$psd", passwd);
 
-        long res = (long)cmd.ExecuteScalar()!;
+        using var res = cmd.ExecuteReader()!;
         Console.WriteLine($"DEBUG: user='{username}' pass='{passwd}' count={res}");
-        return res > 0;
+        return res.GetInt32(0);;
     }
 
-    public List<Message> add(string username, string name, string password, string gmail)
+    public bool add(string username, string name, string password, string gmail)
     {
         if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(name) || string.IsNullOrEmpty(password) ||
             string.IsNullOrEmpty(gmail))
@@ -75,6 +75,8 @@ public class database
             temp.order = ls.GetInt32(3);
             tempo.Add(temp);
         }
+
+        return tempo;
     }
     
 }

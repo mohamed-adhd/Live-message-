@@ -8,6 +8,8 @@ public partial class MainWindowViewModel : ObservableObject
 {
     [ObservableProperty] private object currentpage;
 
+    [ObservableProperty] private int id;
+
     public MainWindowViewModel()
     {
         currentpage = new LoginViewModel(this);

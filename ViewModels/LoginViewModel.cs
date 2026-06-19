@@ -29,7 +29,8 @@ public partial class LoginViewModel : ViewModelBase
     private void CheckLogin()
     {
         Console.WriteLine("DEBUG: button was clicked");
-        if (db.check_login(Username, Password))
+        _main.Id = db.check_login(Username, Password);
+        if (_main.Id!=-1)
         {
             Found = true;
             _main.Currentpage = new MainMenuViewModel(_main);

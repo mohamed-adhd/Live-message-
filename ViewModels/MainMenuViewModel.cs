@@ -1,3 +1,6 @@
+using System.Collections.Generic;
+using Tmds.DBus.Protocol;
+
 namespace live_message_app.ViewModels;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
@@ -7,6 +10,7 @@ public partial class MainMenuViewModel : ViewModelBase
     [ObservableProperty]
     private bool is_invite_open = false,is_setting_open = false;
 
+    private List<Message> messages = new();
    
 
     public MainMenuViewModel(MainWindowViewModel main)
