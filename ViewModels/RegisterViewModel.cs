@@ -7,7 +7,7 @@ public partial class RegisterViewModel: ViewModelBase
 {
     private readonly MainWindowViewModel _main;
     public readonly database db;
-    [ObservableProperty] string username,name,passwrd,cpasswd,gmail,message;
+    [ObservableProperty] string username="",name="",passwrd="",cpasswd="",gmail="",message="";
     public RegisterViewModel(MainWindowViewModel main)
     {
         _main = main;
@@ -20,21 +20,24 @@ public partial class RegisterViewModel: ViewModelBase
     }
 
     [RelayCommand]
-    private bool register()
+    private void register()
     {
         if (Cpasswd != Passwrd)
         {
             Message = "passwords arent matching!";
-            return false;
+            return;
+
         }else if (!Gmail.Contains("@gmail.com"))
         {
             Message = "not a valid gmail address, we only support gmail!";
-            return false;
+            return;
+
         }
         else if (Username == "" || Passwrd == "" || Cpasswd == "" || Gmail == "" || Name == "")
         {
             Message = "fill all fields!";
-            return false;
+            return;
+
         }
         else
         {

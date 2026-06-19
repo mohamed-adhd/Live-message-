@@ -33,7 +33,7 @@ public class database
         using var con = new SqliteConnection(path);
         con.Open();
         var cmd = con.CreateCommand();
-        cmd.CommandText = "INSERT INTO users VALUES ($user,$name,$passwd,$gmail);";
+        cmd.CommandText = "INSERT INTO users(username,name,password,gmail) VALUES ($user,$name,$passwd,$gmail);";
         cmd.Parameters.AddWithValue("$user", username);
         cmd.Parameters.AddWithValue("$name", name);
         cmd.Parameters.AddWithValue("$passwd", password);
