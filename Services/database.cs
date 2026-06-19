@@ -15,6 +15,13 @@ public struct Message
 
     
 }
+
+public struct user
+{
+    public int id;
+    public string name;
+    public string username;
+}
 public class database
 {
     private string path = "Data Source=/home/bro/my-creations/live-message-app/databases/admin.db ";
@@ -31,7 +38,7 @@ public class database
 
         using var res = cmd.ExecuteReader()!;
         Console.WriteLine($"DEBUG: user='{username}' pass='{passwd}' count={res}");
-        return res.GetInt32(0);;
+        return res.GetInt32(0);
     }
 
     public bool add(string username, string name, string password, string gmail)
@@ -56,6 +63,26 @@ public class database
         
     }
 
+    public user search_by_id(int id)
+    {
+        using var con = new SqliteConnection(path);
+        con.Open();
+        var cmd = con.CreateCommand();
+        cmd.CommandText="SELECT * FROM users WHERE id=$d;";
+        cmd.Parameters.AddWithValue("$d", id);
+        using var res = cmd.ExecuteReader()!;
+        //!Console.WriteLine($"DEBUG: user='{username}' pass='{passwd}' count={res}");-->
+        user temp=new();
+        while (res.Read())
+        {
+            temp.id = id;
+            temp.name=res.GetString(1);
+            temp.username=res.GetString(1);
+        }
+
+        return temp;
+
+    }
     public List<Message> Fetchmessages(int id)
     {
         List<Message> tempo=new();
@@ -77,6 +104,33 @@ public class database
         }
 
         return tempo;
+    }
+
+    public List<user> Fetchfriends(List<Message> mlist,int id)
+    {
+        List<user> friends = new();
+        List<int> temp = new();
+        foreach (Message m in mlist)
+        {
+            if (m.from_id == id)
+            {
+                if (!temp.Contains(m.to_id))
+                {
+                    friends.Add(search_by_id(m.to_id));
+                    temp.Add(m.to_id);
+                }
+                
+            }else if (m.to_id == id)
+            {
+                if (!temp.Contains(m.from_id))
+                {
+                    friends.Add(search_by_id(m.from_id));
+                    temp.Add(m.from_id);
+                }
+            }
+        }
+
+        return friends;
     }
     
 }

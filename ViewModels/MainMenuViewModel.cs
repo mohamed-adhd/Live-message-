@@ -10,12 +10,15 @@ public partial class MainMenuViewModel : ViewModelBase
     [ObservableProperty]
     private bool is_invite_open = false,is_setting_open = false;
 
+    [ObservableProperty] private List<Message> _messagelist;
+
     private List<Message> messages = new();
    
 
     public MainMenuViewModel(MainWindowViewModel main)
     {
         _main = main;
+        
     }
     
     
