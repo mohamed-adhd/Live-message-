@@ -13,15 +13,15 @@ public partial class MainMenuViewModel : ViewModelBase
     private bool is_invite_open = false,is_setting_open = false;
     public readonly database db;
 
-    private List<Messagestruct> Messageslist = new();
-    private List<user> flist = new();
+    [ObservableProperty]private List<Messagestruct> messageslist = new();
+    [ObservableProperty]private List<user> flist = new();
 
     public MainMenuViewModel(MainWindowViewModel main)
     {
         db = new Services.database();
         _main = main;
         Messageslist = db.Fetchmessages(_main.Id);
-        flist = db.Fetchfriends(Messageslist, _main.Id);
+        Flist = db.Fetchfriends(Messageslist, _main.Id);
     }
     
     
