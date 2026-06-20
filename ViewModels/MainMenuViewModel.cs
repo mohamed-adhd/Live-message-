@@ -15,7 +15,7 @@ public partial class MainMenuViewModel : ViewModelBase
 
     [ObservableProperty]private List<Messagestruct> messageslist = new();
     [ObservableProperty]private List<user> flist = new();
-    [obw]
+    [ObservableProperty] private user selectedUser;
 
     public MainMenuViewModel(MainWindowViewModel main)
     {

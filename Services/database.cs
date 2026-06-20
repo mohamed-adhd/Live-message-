@@ -75,16 +75,20 @@ public class database
         using var res = cmd.ExecuteReader()!;
         //!Console.WriteLine($"DEBUG: user='{username}' pass='{passwd}' count={res}");-->
         user temp=new();
+        
         while (res.Read())
         {
             temp.id = id;
             temp.name=res.GetString(1);
             temp.username=res.GetString(2);
             var cmdo = con.CreateCommand();
-            cmdo.CommandText="SELECT text FROM chats WHERE (from_id = $d AND to_id = $d2) OR (from_id = ? AND to_id = ?) ORDER BY order DESC LIMIT 1;";
+            cmdo.CommandText="""SELECT text FROM chats WHERE (from_id = $d AND to_id = $d2) OR (from_id = $d3 AND to_id = $d4) ORDER BY "order" DESC LIMIT 1;""";
             cmdo.Parameters.AddWithValue("$d", id);
             cmdo.Parameters.AddWithValue("$d2", id2);
+            cmdo.Parameters.AddWithValue("$d3", id2);
+            cmdo.Parameters.AddWithValue("$d4", id);
             using var reso = cmdo.ExecuteReader()!;
+            reso.Read();
             temp.name=reso.GetString(0);
         }
 
