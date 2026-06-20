@@ -162,8 +162,43 @@ public class database
 
         using var res = cmd.ExecuteReader()!;
         res.Read();
-        return res.GetInt32(0)+1;
+        return res.GetInt32(3)+1;
     }
-    db.addmsg(MessageToSend,_main.Id,SelectedUser.id);
+
+    public void addmsg(string txt, int fid, int tid,int order)
+    {
+        using var con = new SqliteConnection(path);
+        con.Open();
+        var cmd = con.CreateCommand();
+        cmd.CommandText = "INSERT INTO chats(from_id,to_id,text,order) VALUES ($user,$name,$passwd,$gmail);";
+        cmd.Parameters.AddWithValue("$user", fid);
+        cmd.Parameters.AddWithValue("$name", tid);
+        cmd.Parameters.AddWithValue("$passwd", txt);
+        cmd.Parameters.AddWithValue("$gmail", order);
+
+        long res = (long)cmd.ExecuteNonQuery()!;
+
+    }
+    
+    public List<Messagestruct> selecmsg(int fid, int tid)
+    {
+        List<Mess
+        using var con = new SqliteConnection(path);
+        con.Open();
+        var cmd = con.CreateCommand();
+        cmd.CommandText = """SELECT "order" FROM chats WHERE (from_id=$id1 and to_id=$id2) or (from_id=$id3 and to_id=$id4) ORDER BY "order" DESC""";;
+        cmd.Parameters.AddWithValue("$user", fid);
+        cmd.Parameters.AddWithValue("$name", tid);
+        cmd.Parameters.AddWithValue("$passwd", txt);
+        cmd.Parameters.AddWithValue("$gmail", order);
+        
+        using var res=cmd.ExecuteReader()!;
+        while (res.Read())
+        {
+            
+        }
+
+    }
+    
     
 }
