@@ -16,7 +16,7 @@ public struct Messagestruct
     
 }
 
-public struct user
+public class user
 {
     public int id{ get; set; }
     public string name{ get; set; }

@@ -50,7 +50,7 @@
                 </StackPanel>
             </Border>
         <Border IsVisible="{Binding Is_setting_open}"
-                Background="#88000000">  <!-- semi-transparent dark backdrop -->
+                Background="#88000000">  
             <Border Background="#1E293B" Width="480" Height="380"
                     HorizontalAlignment="Center" VerticalAlignment="Center"
                     CornerRadius="12" Padding="0">
