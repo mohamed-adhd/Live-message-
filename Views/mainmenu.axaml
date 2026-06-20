@@ -1,9 +1,16 @@
 <UserControl
+    
+    xmlns:services="using:live_message_app.Services"
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:vm="using:live_message_app.ViewModels"
     x:Class="live_message_app.Views.MainMenu"
     x:DataType="vm:MainMenuViewModel">
+    <UserControl.Styles>
+        <Style Selector="Border.convo-item:pointerover">
+            <Setter Property="Background" Value="#1A2744"/>
+        </Style>
+    </UserControl.Styles>
     <Grid>
         <!-- ain't gon lie , ts became easier than i thought, jsut some javascript and some html lmao-->
         <Grid ColumnDefinitions="280,*">
@@ -16,19 +23,65 @@
             </Grid>
                     <TextBox Grid.Row="1" Margin="12,0,12,8" PlaceholderText="Search..." Background="#0D1829" CornerRadius="8" Padding="10,8"/>
                     <ScrollViewer Grid.Row="2">
-                        <ItemsControl ItemsSource="{Binding Flist}" >
-                            <ItemsControl.ItemTemplate>
-                                <DataTemplate>
-                                    <StackPanel>
-                                        <TextBlock Text="{Binding username}" FontWeight="Bold"/>
-                                        <TextBlock Text="{Binding name}" Foreground="Gray"/>
-                                    </StackPanel>
+                        <ListBox ItemsSource="{Binding Flist}"
+                                 SelectedItem="{Binding SelectedUser}">
+
+                            <ListBox.Styles>
+
+                                <Style Selector="ListBoxItem">
+                                    <Setter Property="HorizontalContentAlignment"
+                                            Value="Stretch"/>
+                                    <Setter Property="Padding"
+                                            Value="0"/>
+                                    <Setter Property="Margin"
+                                            Value="2"/>
+                                </Style>
+
+                                <Style Selector="ListBoxItem:pointerover /template/ Border#ChatBorder">
+                                    <Setter Property="Background" Value="#1A2744"/>
+                                </Style>
+
+                                <Style Selector="ListBoxItem:selected /template/ Border#ChatBorder">
+                                    <Setter Property="Background" Value="#274B7A"/>
+                                </Style>
+
+                            </ListBox.Styles>
+
+                            <ListBox.ItemTemplate>
+                                <DataTemplate x:DataType="services:user">
+
+                                    <Border x:Name="ChatBorder"
+                                            Background="Transparent"
+                                            CornerRadius="8"
+                                            Padding="8">
+
+                                        <StackPanel Orientation="Horizontal"
+                                                    Spacing="10">
+
+                                            <Ellipse Width="40"
+                                                     Height="40"
+                                                     Fill="Gray"/>
+
+                                            <StackPanel VerticalAlignment="Center">
+
+                                                <TextBlock Text="{Binding username}"
+                                                           FontSize="16"
+                                                           FontWeight="Bold"/>
+
+                                                <TextBlock Text="{Binding LastMessage}"
+                                                           FontSize="12"
+                                                           Opacity="0.7"/>
+
+                                            </StackPanel>
+
+                                        </StackPanel>
+
+                                    </Border>
+
                                 </DataTemplate>
-                                
-                                
-                                
-                            </ItemsControl.ItemTemplate>
-                        </ItemsControl>
+                            </ListBox.ItemTemplate>
+
+                        </ListBox>
                         
                     </ScrollViewer>
                     <Grid Grid.Row="3" Margin="12,8" ColumnDefinitions="Auto,*,Auto"></Grid>

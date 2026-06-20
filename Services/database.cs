@@ -21,6 +21,7 @@ public class user
     public int id{ get; set; }
     public string name{ get; set; }
     public string username{ get; set; }
+    public string LastMessage { get; set; }
 }
 public class database
 {
@@ -64,7 +65,7 @@ public class database
         
     }
 
-    public user search_by_id(int id)
+    public user search_by_id(int id,int id2)
     {
         using var con = new SqliteConnection(path);
         con.Open();
@@ -79,6 +80,12 @@ public class database
             temp.id = id;
             temp.name=res.GetString(1);
             temp.username=res.GetString(2);
+            var cmdo = con.CreateCommand();
+            cmdo.CommandText="SELECT text FROM chats WHERE (from_id = $d AND to_id = $d2) OR (from_id = ? AND to_id = ?) ORDER BY order DESC LIMIT 1;";
+            cmdo.Parameters.AddWithValue("$d", id);
+            cmdo.Parameters.AddWithValue("$d2", id2);
+            using var reso = cmdo.ExecuteReader()!;
+            temp.name=reso.GetString(0);
         }
 
         return temp;
@@ -117,7 +124,7 @@ public class database
             {
                 if (!temp.Contains(m.to_id))
                 {
-                    friends.Add(search_by_id(m.to_id));
+                    friends.Add(search_by_id(m.to_id,id));
                     temp.Add(m.to_id);
                 }
                 
@@ -125,7 +132,7 @@ public class database
             {
                 if (!temp.Contains(m.from_id))
                 {
-                    friends.Add(search_by_id(m.from_id));
+                    friends.Add(search_by_id(m.from_id,id));
                     temp.Add(m.from_id);
                 }
             }
