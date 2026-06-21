@@ -1,0 +1,15 @@
+/home/bro/my-creations/live-message-app/live-message-client/LiveMessage.Server/bin/Debug/net10.0/LiveMessage.Server
+/home/bro/my-creations/live-message-app/live-message-client/LiveMessage.Server/bin/Debug/net10.0/LiveMessage.Server.deps.json
+/home/bro/my-creations/live-message-app/live-message-client/LiveMessage.Server/bin/Debug/net10.0/LiveMessage.Server.runtimeconfig.json
+/home/bro/my-creations/live-message-app/live-message-client/LiveMessage.Server/bin/Debug/net10.0/LiveMessage.Server.dll
+/home/bro/my-creations/live-message-app/live-message-client/LiveMessage.Server/bin/Debug/net10.0/LiveMessage.Server.pdb
+/home/bro/my-creations/live-message-app/live-message-client/LiveMessage.Server/obj/Debug/net10.0/LiveMessage.Server.GeneratedMSBuildEditorConfig.editorconfig
+/home/bro/my-creations/live-message-app/live-message-client/LiveMessage.Server/obj/Debug/net10.0/LiveMessage.Server.AssemblyInfoInputs.cache
+/home/bro/my-creations/live-message-app/live-message-client/LiveMessage.Server/obj/Debug/net10.0/LiveMessage.Server.AssemblyInfo.cs
+/home/bro/my-creations/live-message-app/live-message-client/LiveMessage.Server/obj/Debug/net10.0/LiveMessage.Server.csproj.CoreCompileInputs.cache
+/home/bro/my-creations/live-message-app/live-message-client/LiveMessage.Server/obj/Debug/net10.0/LiveMessage.Server.sourcelink.json
+/home/bro/my-creations/live-message-app/live-message-client/LiveMessage.Server/obj/Debug/net10.0/LiveMessage.Server.dll
+/home/bro/my-creations/live-message-app/live-message-client/LiveMessage.Server/obj/Debug/net10.0/refint/LiveMessage.Server.dll
+/home/bro/my-creations/live-message-app/live-message-client/LiveMessage.Server/obj/Debug/net10.0/LiveMessage.Server.pdb
+/home/bro/my-creations/live-message-app/live-message-client/LiveMessage.Server/obj/Debug/net10.0/LiveMessage.Server.genruntimeconfig.cache
+/home/bro/my-creations/live-message-app/live-message-client/LiveMessage.Server/obj/Debug/net10.0/ref/LiveMessage.Server.dll
