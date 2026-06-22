@@ -4,6 +4,8 @@ using CommunityToolkit.Mvvm.ComponentModel;
 using live_message_app.Services;
 using live_message_app.Views;
 namespace live_message_app.ViewModels;
+using System.Text;
+using System.Threading.Tasks;
 public partial class MainWindowViewModel : ObservableObject
 {
     [ObservableProperty] private object currentpage;
@@ -20,7 +22,7 @@ public partial class MainWindowViewModel : ObservableObject
         currentpage = new LoginViewModel(this);
         if (Connected)
         {
-            network.start_recieving();
+            Task.Run(() => network.start_recieving());
         }
         
 

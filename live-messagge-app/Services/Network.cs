@@ -23,10 +23,11 @@ public class Network
 
     public bool Connect(string ip, int port)
     {
-        _client = new TcpClient();
         try
         {
-            _client.Connect(ip, port);
+            var client = new TcpClient();
+            client.Connect(ip, port);
+            _client = client;
             return true;
         }
         catch
