@@ -43,6 +43,7 @@ public partial class MainMenuViewModel : ViewModelBase
         {
             int s = db.neword(_main.Updates.From, _main.Updates.From);
             db.addmsg(_main.Updates.Text,_main.Updates.From,_main.Updates.To,s);
+            _main.News = false;
         }
     }
     

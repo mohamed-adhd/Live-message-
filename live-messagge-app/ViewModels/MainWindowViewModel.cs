@@ -14,7 +14,7 @@ public partial class MainWindowViewModel : ObservableObject
     [ObservableProperty] private bool connected = false;
     public Services.Network network=new();
     [ObservableProperty]private packet updates;
-    [ObservableProperty]private bool news=true;
+    [ObservableProperty]private bool news=false;
 
     public MainWindowViewModel()
     {
