@@ -11,7 +11,7 @@ public partial class LoginViewModel : ViewModelBase
 {
     private readonly MainWindowViewModel _main;
     public readonly database db;
-    [ObservableProperty] public bool found=true,_connected=false;
+    [ObservableProperty] public bool found=true;
     [ObservableProperty] private string username;
     [ObservableProperty] private string password,connection_status="connection error";
 

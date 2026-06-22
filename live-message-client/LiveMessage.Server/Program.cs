@@ -1,7 +1,7 @@
 ﻿using System.Net;
 using System.Net.Sockets;
 
-TcpListener server = new TcpListener(IPAddress.Any, 5000);
+TcpListener server = new TcpListener(IPAddress.Any, 8000);
 server.Start();
 Console.WriteLine("Server started on port 8000");
 

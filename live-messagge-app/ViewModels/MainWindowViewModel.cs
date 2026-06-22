@@ -16,7 +16,7 @@ public partial class MainWindowViewModel : ObservableObject
     public MainWindowViewModel()
     {
         currentpage = new LoginViewModel(this);
-        connected=network.Connect("localhost", 8000);
+        connected=network.Connect("127.0.0.1", 8000);
 
     }
 }
