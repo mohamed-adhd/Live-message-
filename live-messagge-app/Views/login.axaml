@@ -5,6 +5,9 @@
     x:Class="live_message_app.Views.LoginView"
     x:DataType="vm:LoginViewModel">
     <Grid>
+        <TextBlock  Text="{Binding Connection_status}"
+                   HorizontalAlignment="Left"
+                   VerticalAlignment="Bottom"/>
         <TextBlock IsVisible="{Binding !Found}" Text="nigga u fucked up"
                    HorizontalAlignment="Left"
                    VerticalAlignment="Top"/>

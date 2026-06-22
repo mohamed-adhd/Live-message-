@@ -3,6 +3,7 @@ using CommunityToolkit.Mvvm.Input;
 using Avalonia.Controls;
 using CommunityToolkit.Mvvm.ComponentModel;
 using live_message_app.Services;
+using live_message_app.ViewModels;
 using live_message_app.Views;
 namespace live_message_app.ViewModels;
 using static Console;
@@ -10,16 +11,21 @@ public partial class LoginViewModel : ViewModelBase
 {
     private readonly MainWindowViewModel _main;
     public readonly database db;
-    [ObservableProperty] public bool found=true;
+    [ObservableProperty] public bool found=true,_connected=false;
     [ObservableProperty] private string username;
-    [ObservableProperty] private string password;
+    [ObservableProperty] private string password,connection_status="connection error";
+
     public LoginViewModel(MainWindowViewModel main)
     {
         db = new Services.database();
         _main = main;
+        if (_main.Connected)
+        {
+            connection_status="connected";
+        }
+
     }
-    
-    
+
     [RelayCommand]
     private void GoToRegister()
     {

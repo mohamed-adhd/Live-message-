@@ -1,6 +1,6 @@
 using System.Data;
 using System.Net.Sockets;
-
+namespace live_message_app.Services;
 public class Network
 {
     private TcpClient? _client;
