@@ -22,7 +22,7 @@
             <Button Grid.Column="2" Width="32" Height="32" CornerRadius="8" Background="#1A2744" Command="{Binding open_settingCommand}" Content="⚙"/>
             </Grid>
                     <TextBox Grid.Row="1" Margin="12,0,12,8" PlaceholderText="Search..." Background="#0D1829" CornerRadius="8" Padding="10,8"/>
-                    <ScrollViewer Grid.Row="2">
+                    <ScrollViewer Grid.Row="2" >
                         <ListBox Background ="#0D1829" ItemsSource="{Binding Flist}"
                                  SelectedItem="{Binding SelectedUser}">
 
@@ -87,12 +87,12 @@
                     <Grid Grid.Row="3" Margin="12,8" ColumnDefinitions="Auto,*,Auto"></Grid>
                 </Grid>
             </Border>
-                            <!-- CHAT ZONE / column 1 -->
+                            
                 <Grid Grid.Column="1"
-                      RowDefinitions="60,*,70"
+                      RowDefinitions="Auto,*,Auto"
                       Background="#0B1020">
 
-                    <!-- Header -->
+                 
                     <Border Grid.Row="0"
                             Background="#10182B"
                             Padding="18,10"
@@ -109,7 +109,7 @@
 
 
                     <ScrollViewer Grid.Row="1"
-                                  Padding="18"
+                                  Padding="0"
                                   VerticalScrollBarVisibility="Auto">
 
                         <ItemsControl ItemsSource="{Binding SelectedMessages}">

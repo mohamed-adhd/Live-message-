@@ -29,7 +29,7 @@ public partial class MainWindowViewModel : ObservableObject
                 while (Connected)
                 {
                     Updates = network.start_recieving();
-                    news = true;
+                    News = true;
                     int s = Db.neword(Updates.From, Updates.To);
                     Db.addmsg(Updates.Text, Updates.From, Updates.To, s);
                     News = false;

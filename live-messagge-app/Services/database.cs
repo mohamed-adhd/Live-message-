@@ -161,7 +161,11 @@ public class database
         cmd.Parameters.AddWithValue("$id4", id1);
 
         using var res = cmd.ExecuteReader()!;
-        if (res.Read()) return res.GetInt32(0) + 1;
+        if (res.Read())
+        {
+            
+            return res.GetInt32(0) + 1;
+        }
         return 1;
     }
 
@@ -186,7 +190,7 @@ public class database
         using var con = new SqliteConnection(path);
         con.Open();
         var cmd = con.CreateCommand();
-        cmd.CommandText = """SELECT from_id, to_id, text, "order" FROM chats WHERE (from_id=$id1 and to_id=$id2) or (from_id=$id3 and to_id=$id4) ORDER BY "order" DESC""";;
+        cmd.CommandText = """SELECT from_id, to_id, text, "order" FROM chats WHERE (from_id=$id1 and to_id=$id2) or (from_id=$id3 and to_id=$id4) ORDER BY "order" ASC""";;
         cmd.Parameters.AddWithValue("$id1", id1);
         cmd.Parameters.AddWithValue("$id2", id2);
         cmd.Parameters.AddWithValue("$id3", id2);
