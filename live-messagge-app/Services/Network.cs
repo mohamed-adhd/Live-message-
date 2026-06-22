@@ -33,13 +33,14 @@ public class Network
             return false;
         }
     }
-}
-public void sendpacket(packet tempo,TcpClient _client)
-{
-    string json = JsonSerializer.Serialize(tempo);
-    byte[] data=Encoding.UTF8.GetBytes(json);
-    NetworkStream stream = _client.GetStream();
-    stream.Write(data);
+    public void sendpacket(packet tempo)
+    {
+        string json = JsonSerializer.Serialize(tempo);
+        byte[] data=Encoding.UTF8.GetBytes(json);
+        NetworkStream stream = _client.GetStream();
+        stream.Write(data);
 
+    }
 }
+
 

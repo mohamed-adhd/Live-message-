@@ -107,7 +107,7 @@
                     </Border>
 
 
-                    <!-- Messages -->
+
                     <ScrollViewer Grid.Row="1"
                                   Padding="18"
                                   VerticalScrollBarVisibility="Auto">
@@ -139,7 +139,7 @@
                     </ScrollViewer>
 
 
-                    <!-- Send box -->
+
                     <Border Grid.Row="2"
                             Background="#10182B"
                             Padding="14"
@@ -160,7 +160,7 @@
 
                             <Button Grid.Column="1"
                                     Content="Send"
-                                    Command="{Binding SendMessageCommand}"
+                                    Command="{Binding send_messageCommand}"
                                     Background="#274B7A"
                                     Foreground="White"
                                     CornerRadius="10"/>

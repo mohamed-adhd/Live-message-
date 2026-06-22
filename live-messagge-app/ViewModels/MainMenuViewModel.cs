@@ -84,6 +84,8 @@ public partial class MainMenuViewModel : ViewModelBase
         temp.Type = "message";
         temp.From = _main.Id;
         temp.To = SelectedUser.id;
+        
+        _main.network.sendpacket(temp);
 
     }
     

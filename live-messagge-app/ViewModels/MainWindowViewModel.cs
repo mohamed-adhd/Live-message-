@@ -10,7 +10,7 @@ public partial class MainWindowViewModel : ObservableObject
 
     [ObservableProperty] private int id;
     [ObservableProperty] private bool connected = false;
-    Services.Network network=new();
+    public Services.Network network=new();
     
 
     public MainWindowViewModel()
