@@ -160,7 +160,7 @@
 
                             <Button Grid.Column="1"
                                     Content="Send"
-                                    Command="{Binding send_messageCommand}"
+                                    Command="{Binding SendMessageCommand}"
                                     Background="#274B7A"
                                     Foreground="White"
                                     CornerRadius="10"/>

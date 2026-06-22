@@ -6,6 +6,8 @@ using static System.Console;
 namespace live_message_app.ViewModels;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using System.ComponentModel;
+using Avalonia.Threading;
 public partial class MainMenuViewModel : ViewModelBase
 {
     private readonly MainWindowViewModel _main;
@@ -24,7 +26,7 @@ public partial class MainMenuViewModel : ViewModelBase
         WriteLine($"Selected user: {value?.username}");
         if (value == null)
             return;
-
+        
         SelectedMessages = _main.Db.selecmsg(_main.Id,SelectedUser.id);
         WriteLine($"Messages loaded: {SelectedMessages.Count}");        
         MessageToSend = "";
@@ -37,7 +39,7 @@ public partial class MainMenuViewModel : ViewModelBase
         _main = main;
         Messageslist = _main.Db.Fetchmessages(_main.Id);
         Flist = _main.Db.Fetchfriends(Messageslist, _main.Id);
-
+        _main.PropertyChanged += Main_PropertyChanged;
         
     }
 
@@ -76,20 +78,44 @@ public partial class MainMenuViewModel : ViewModelBase
     {
         int ord = _main.Db.neword(_main.Id, SelectedUser.id);
         _main.Db.addmsg(MessageToSend,_main.Id,SelectedUser.id,ord);
-    }
-
-    [RelayCommand]
-    private void send_message()
-    {
         packet temp=new();
-        temp.Text = messageToSend;
+        temp.Text = MessageToSend;
         temp.Type = "message";
         temp.From = _main.Id;
         temp.To = SelectedUser.id;
         
         _main.network.sendpacket(temp);
-
+        
+        SelectedMessages = _main.Db.selecmsg(_main.Id,SelectedUser.id);
+        WriteLine($"Messages loaded: {SelectedMessages.Count}");        
+        MessageToSend = "";
+        
     }
+    private void Main_PropertyChanged(object? sender, PropertyChangedEventArgs e)
+    {
+        if (e.PropertyName != nameof(MainWindowViewModel.Updates))
+            return;
+
+        Dispatcher.UIThread.Post(() =>
+        {
+            if (SelectedUser == null)
+                return;
+
+            var p = _main.Updates;
+
+            bool belongsToOpenChat =
+                (p.From == _main.Id && p.To == SelectedUser.id) ||
+                (p.From == SelectedUser.id && p.To == _main.Id);
+
+            if (belongsToOpenChat)
+                SelectedMessages = _main.Db.selecmsg(_main.Id, SelectedUser.id);
+
+            Messageslist = _main.Db.Fetchmessages(_main.Id);
+            Flist = _main.Db.Fetchfriends(Messageslist, _main.Id);
+        });
+    }
+
+    
     
 }
 

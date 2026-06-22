@@ -161,8 +161,8 @@ public class database
         cmd.Parameters.AddWithValue("$id4", id1);
 
         using var res = cmd.ExecuteReader()!;
-        res.Read();
-        return res.GetInt32(3)+1;
+        if (res.Read()) return res.GetInt32(0) + 1;
+        return 1;
     }
 
     public void addmsg(string txt, int fid, int tid,int order)
@@ -170,7 +170,7 @@ public class database
         using var con = new SqliteConnection(path);
         con.Open();
         var cmd = con.CreateCommand();
-        cmd.CommandText = "INSERT INTO chats(from_id,to_id,text,order) VALUES ($user,$name,$passwd,$gmail);";
+        cmd.CommandText = """INSERT INTO chats(from_id,to_id,text,"order") VALUES ($user,$name,$passwd,$gmail);""";
         cmd.Parameters.AddWithValue("$user", fid);
         cmd.Parameters.AddWithValue("$name", tid);
         cmd.Parameters.AddWithValue("$passwd", txt);

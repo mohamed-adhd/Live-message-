@@ -28,7 +28,7 @@ public partial class MainWindowViewModel : ObservableObject
             {
                 while (Connected)
                 {
-                    updates = network.start_recieving();
+                    Updates = network.start_recieving();
                     news = true;
                     int s = Db.neword(Updates.From, Updates.To);
                     Db.addmsg(Updates.Text, Updates.From, Updates.To, s);
