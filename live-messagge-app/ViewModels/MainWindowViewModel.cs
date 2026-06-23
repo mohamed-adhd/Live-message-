@@ -28,17 +28,19 @@ public partial class MainWindowViewModel : ObservableObject
                 while (Connected)
                 {
                     var p = network.start_recieving();
-                    News = true;
-                    int s = Db.neword(Updates.From, Updates.To);
-                    Db.addmsg(p.Text, p.From, p.To, s);
-                    News = false;
-                    if (p.Text == "message")
+                    
+                    if (p.Type == "message")
                     {
+                        News = true;
+                        int s = Db.neword(p.From, p.To);
+                        Db.addmsg(p.Text, p.From, p.To, s);
+                        News = false;
                         Updates = p;
                     }
                     else
                     {
-                        new_invites = p;
+                        Db.add_invite(p.From, p.To);
+                        New_invites = p;
                     }
                 }
             });

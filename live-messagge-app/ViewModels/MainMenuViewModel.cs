@@ -85,7 +85,8 @@ public partial class MainMenuViewModel : ViewModelBase
         temps.Text = InviteUsername;
         temps.Type = "request";
         temps.From = _main.Id;
-        temps.To = SelectedUser.id;
+        int s = _main.Db.get_id(InviteUsername);
+        temps.To = s;
         
         _main.network.sendpacket(temps);
         user temp = _main.Db.search_by_username(InviteUsername);
@@ -131,7 +132,6 @@ public partial class MainMenuViewModel : ViewModelBase
             }
             else if (e.PropertyName == nameof(MainWindowViewModel.New_invites) && _main.New_invites.To==_main.Id)
             {
-                _main.Db.add_invite(_main.New_invites.From,_main.New_invites.To);
                 PendingInvites = _main.Db.fetch_invites(_main.Id);
             }
         });

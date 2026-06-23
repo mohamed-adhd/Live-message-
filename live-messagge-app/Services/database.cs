@@ -87,6 +87,22 @@ public class database
 
 
     }
+    public int get_id(string s)
+    {
+        using var con = new SqliteConnection(path);
+        con.Open();
+        var cmd = con.CreateCommand();
+        cmd.CommandText="SELECT id FROM users WHERE username=$d;";
+        cmd.Parameters.AddWithValue("$d", s);
+        using var res = cmd.ExecuteReader()!;
+        //!Console.WriteLine($"DEBUG: user='{username}' pass='{passwd}' count={res}");-->
+        user temp=new();
+
+        res.Read();
+        return res.GetInt32(0);
+
+
+    }
     public user search_by_id(int id,int id2)
     {
         using var con = new SqliteConnection(path);
@@ -241,7 +257,6 @@ public class database
         var cmd = con.CreateCommand();
         cmd.CommandText = "SELECT * FROM users  WHERE username=$d;";
         cmd.Parameters.AddWithValue("$d", name);
-        cmd.ExecuteReader();
         using var res= cmd.ExecuteReader();
         if (res.Read())
         {
