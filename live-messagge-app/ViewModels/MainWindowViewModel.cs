@@ -9,15 +9,12 @@ using System.Threading.Tasks;
 public partial class MainWindowViewModel : ObservableObject
 {
     [ObservableProperty] private object currentpage;
-
     [ObservableProperty] private int id;
     [ObservableProperty] private bool connected = false;
     public Services.Network network=new();
     [ObservableProperty]private packet updates;
     [ObservableProperty]private bool news=false;
-    
     public database Db { get; } = new();
-
     public MainWindowViewModel()
     {
         connected=network.Connect("127.0.0.1", 8000);
@@ -35,9 +32,7 @@ public partial class MainWindowViewModel : ObservableObject
                     Db.addmsg(p.Text, p.From, p.To, s);
                     News = false;
                     Updates = p;
-                    
                 }
-
             });
         }
         

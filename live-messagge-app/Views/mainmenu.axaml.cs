@@ -32,3 +32,4 @@ public partial class MainMenu : UserControl
     }
     
 }
+//<--! fuck the scroller bruh , i spent more timee fighting it than fixing the network -->
