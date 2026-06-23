@@ -126,6 +126,14 @@ public partial class MainMenuViewModel : ViewModelBase
         });
     }
 
+    [RelayCommand]
+    public void acceptInvite(invites i)
+    {
+        _main.Db.add_friends(i.from_id,i.to_id);
+        _main.Db.delete_invite(i);
+        pendingInvites.Remove(i);
+    }
+
     
     
 }

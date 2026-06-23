@@ -286,7 +286,7 @@ public class database
             temp.to_id = res.GetInt32(1);
             temp.username = get_username(temp.from_id);
             tempo.Add(temp);
-
+            
         }
 
         return tempo;
@@ -294,7 +294,22 @@ public class database
 
     public void add_friends(int id1, int id2)
     {
-        
+        var con = new SqliteConnection(path);
+        using var cmd = con.CreateCommand();
+        cmd.CommandText = """INSERT INTO chats(from_id,to_id,text,"order") VALUES ($f,$t,"Hello Lets start chatting!",0); """;
+        cmd.Parameters.AddWithValue("$f",id1);
+        cmd.Parameters.AddWithValue("$t",id2);
+        cmd.ExecuteNonQuery();
+    }
+
+    public void delete_invite(invite i)
+    {
+        var con = new SqliteConnection(path);
+        using var cmd = con.CreateCommand();
+        cmd.CommandText = """DELETE chats(from_id,to_id,text,"order") VALUES ($f,$t,"Hello Lets start chatting!",0); """;
+        cmd.Parameters.AddWithValue("$f",id1);
+        cmd.Parameters.AddWithValue("$t",id2);
+        cmd.ExecuteNonQuery();
     }
 
     

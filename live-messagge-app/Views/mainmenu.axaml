@@ -214,7 +214,7 @@
                                            VerticalAlignment="Center"/>
                                 <Button Grid.Column="1"
                                         Content="✓"
-                                        Command="{Binding $parent[UserControl].((vm:MainMenuViewModel)DataContext).AcceptInviteCommand}"
+                                        Command="{Binding $parent[UserControl].((vm:MainMenuViewModel)DataContext).acceptInviteCommand}"
                                         CommandParameter="{Binding}"
                                         Background="#14532D"
                                         Foreground="#86EFAC"
