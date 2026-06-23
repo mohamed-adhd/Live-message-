@@ -13,6 +13,7 @@ public partial class MainWindowViewModel : ObservableObject
     [ObservableProperty] private bool connected = false;
     public Services.Network network=new();
     [ObservableProperty]private packet updates;
+    [ObservableProperty]private packet new_invites;
     [ObservableProperty]private bool news=false;
     public database Db { get; } = new();
     public MainWindowViewModel()
@@ -31,7 +32,14 @@ public partial class MainWindowViewModel : ObservableObject
                     int s = Db.neword(Updates.From, Updates.To);
                     Db.addmsg(p.Text, p.From, p.To, s);
                     News = false;
-                    Updates = p;
+                    if (p.Text == "message")
+                    {
+                        Updates = p;
+                    }
+                    else
+                    {
+                        new_invites = p;
+                    }
                 }
             });
         }

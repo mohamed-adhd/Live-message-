@@ -111,28 +111,32 @@ public partial class MainMenuViewModel : ViewModelBase
     }
     private void Main_PropertyChanged(object? sender, PropertyChangedEventArgs e)
     {
-        if (e.PropertyName != nameof(MainWindowViewModel.Updates))
+        if (e.PropertyName != nameof(MainWindowViewModel.Updates) && 
+            e.PropertyName != nameof(MainWindowViewModel.New_invites))
             return;
 
         Dispatcher.UIThread.Post(() =>
         {
-            if (SelectedUser == null)
-                return;
-
-            var p = _main.Updates;
-
-            bool belongsToOpenChat =
-                (p.From == _main.Id && p.To == SelectedUser.id) ||
-                (p.From == SelectedUser.id && p.To == _main.Id);
-
-            if (belongsToOpenChat)
-                SelectedMessages = _main.Db.selecmsg(_main.Id, SelectedUser.id);
-
-            Messageslist = _main.Db.Fetchmessages(_main.Id);
-            Flist = _main.Db.Fetchfriends(Messageslist, _main.Id);
-            
+            if (e.PropertyName == nameof(MainWindowViewModel.Updates))
+            {
+                if (SelectedUser == null) return;
+                var p = _main.Updates;
+                bool belongsToOpenChat =
+                    (p.From == _main.Id && p.To == SelectedUser.id) ||
+                    (p.From == SelectedUser.id && p.To == _main.Id);
+                if (belongsToOpenChat)
+                    SelectedMessages = _main.Db.selecmsg(_main.Id, SelectedUser.id);
+                Messageslist = _main.Db.Fetchmessages(_main.Id);
+                Flist = _main.Db.Fetchfriends(Messageslist, _main.Id);
+            }
+            else if (e.PropertyName == nameof(MainWindowViewModel.New_invites) && _main.New_invites.To==_main.id)
+            {
+                _main.Db.add_invite(_main.New_invites.From,_main.New_invites.To);
+                PendingInvites = _main.Db.fetch_invites(_main.Id);
+            }
         });
     }
+    
 
     [RelayCommand]
     public void acceptInvite(invites i)
