@@ -276,7 +276,7 @@ public class database
         using var con = new SqliteConnection(path);
         con.Open();
         var cmd = con.CreateCommand();
-        cmd.CommandText = "SELECT * FROM invites WHERE id=$id;";
+        cmd.CommandText = "SELECT * FROM invites WHERE to_id=$id;";
         cmd.Parameters.AddWithValue("$id", id);
         using var res=cmd.ExecuteReader();
         while (res.Read())
@@ -295,6 +295,7 @@ public class database
     public void add_friends(int id1, int id2)
     {
         var con = new SqliteConnection(path);
+        con.Open();
         using var cmd = con.CreateCommand();
         cmd.CommandText = """INSERT INTO chats(from_id,to_id,text,"order") VALUES ($f,$t,"Hello Lets start chatting!",0); """;
         cmd.Parameters.AddWithValue("$f",id1);
@@ -304,9 +305,11 @@ public class database
 
     public void delete_invite(invites i)
     {
+        
         var con = new SqliteConnection(path);
+        con.Open();
         using var cmd = con.CreateCommand();
-        cmd.CommandText = "DELETE * FROM invites WHERE from_id=$fi AND to_id=$ti;";
+        cmd.CommandText = "DELETE FROM invites WHERE from_id=$fi AND to_id=$ti;";
         cmd.Parameters.AddWithValue("$fi",i.from_id);
         cmd.Parameters.AddWithValue("$ti",i.to_id);
         cmd.ExecuteNonQuery();

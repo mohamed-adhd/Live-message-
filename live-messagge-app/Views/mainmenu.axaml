@@ -203,7 +203,7 @@
         <ScrollViewer Grid.Row="3">
             <ItemsControl ItemsSource="{Binding PendingInvites}">
                 <ItemsControl.ItemTemplate>
-                    <DataTemplate x:DataType="services:user">
+                    <DataTemplate x:DataType="services:invites">
                         <Border Padding="16,8" BorderBrush="#1A2744"
                                 BorderThickness="0,0,0,1">
                             <Grid ColumnDefinitions="*,Auto,Auto" ColumnSpacing="6">

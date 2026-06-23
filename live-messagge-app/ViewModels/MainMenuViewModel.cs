@@ -40,6 +40,7 @@ public partial class MainMenuViewModel : ViewModelBase
     public MainMenuViewModel(MainWindowViewModel main)
     {
         _main = main;
+        PendingInvites = _main.Db.fetch_invites(_main.Id);
         Messageslist = _main.Db.Fetchmessages(_main.Id);
         Flist = _main.Db.Fetchfriends(Messageslist, _main.Id);
         _main.PropertyChanged += Main_PropertyChanged;
@@ -132,12 +133,16 @@ public partial class MainMenuViewModel : ViewModelBase
         _main.Db.add_friends(i.from_id,i.to_id);
         _main.Db.delete_invite(i);
         pendingInvites.Remove(i);
+        Messageslist = _main.Db.Fetchmessages(_main.Id);
+        Flist = _main.Db.Fetchfriends(Messageslist, _main.Id);
+        PendingInvites = _main.Db.fetch_invites(_main.Id);
     }
     [RelayCommand]
     public void refuseInvite(invites i)
     {
         _main.Db.delete_invite(i);
         pendingInvites.Remove(i);
+        PendingInvites = _main.Db.fetch_invites(_main.Id);
     }
 
     
