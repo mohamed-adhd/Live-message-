@@ -224,7 +224,7 @@
                                         FontSize="14"/>
                                 <Button Grid.Column="2"
                                         Content="✕"
-                                        Command="{Binding $parent[UserControl].((vm:MainMenuViewModel)DataContext).RefuseInviteCommand}"
+                                        Command="{Binding $parent[UserControl].((vm:MainMenuViewModel)DataContext).refuseInviteCommand}"
                                         CommandParameter="{Binding}"
                                         Background="#450A0A"
                                         Foreground="#FCA5A5"

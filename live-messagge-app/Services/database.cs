@@ -302,13 +302,13 @@ public class database
         cmd.ExecuteNonQuery();
     }
 
-    public void delete_invite(invite i)
+    public void delete_invite(invites i)
     {
         var con = new SqliteConnection(path);
         using var cmd = con.CreateCommand();
-        cmd.CommandText = """DELETE chats(from_id,to_id,text,"order") VALUES ($f,$t,"Hello Lets start chatting!",0); """;
-        cmd.Parameters.AddWithValue("$f",id1);
-        cmd.Parameters.AddWithValue("$t",id2);
+        cmd.CommandText = "DELETE * FROM invites WHERE from_id=$fi AND to_id=$ti;";
+        cmd.Parameters.AddWithValue("$fi",i.from_id);
+        cmd.Parameters.AddWithValue("$ti",i.to_id);
         cmd.ExecuteNonQuery();
     }
 

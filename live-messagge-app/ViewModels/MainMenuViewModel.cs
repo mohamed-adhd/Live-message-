@@ -133,6 +133,12 @@ public partial class MainMenuViewModel : ViewModelBase
         _main.Db.delete_invite(i);
         pendingInvites.Remove(i);
     }
+    [RelayCommand]
+    public void refuseInvite(invites i)
+    {
+        _main.Db.delete_invite(i);
+        pendingInvites.Remove(i);
+    }
 
     
     
