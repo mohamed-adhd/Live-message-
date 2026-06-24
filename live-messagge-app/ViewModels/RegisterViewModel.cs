@@ -44,6 +44,13 @@ public partial class RegisterViewModel: ViewModelBase
             if (db.add(Username, Name, Passwrd, Gmail))
             {
                 Message = "successfully registered ! go back to login";
+                packet temps=new();
+                temps.Text = Username+"/"+Name+"/"+Passwrd+"/"+Gmail;
+                temps.Type = "add_user";
+                temps.From = 0;
+                temps.To = 0;
+        
+                _main.network.sendpacket(temps);
             }
             else
             {

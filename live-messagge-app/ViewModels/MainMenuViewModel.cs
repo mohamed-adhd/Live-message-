@@ -78,6 +78,7 @@ public partial class MainMenuViewModel : ViewModelBase
         Is_setting_open = false;
     }
 
+    
     [RelayCommand]
     private void SendInvite()
     {
