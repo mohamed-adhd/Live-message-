@@ -203,5 +203,6 @@
 /usr/share/dotnet/packs/Microsoft.NETCore.App.Ref/10.0.8/ref/net10.0/System.Xml.XmlSerializer.dll
 /usr/share/dotnet/packs/Microsoft.NETCore.App.Ref/10.0.8/ref/net10.0/System.Xml.XPath.dll
 /usr/share/dotnet/packs/Microsoft.NETCore.App.Ref/10.0.8/ref/net10.0/System.Xml.XPath.XDocument.dll
+/home/bro/.nuget/packages/tmds.dbus/0.94.2/lib/net6.0/Tmds.DBus.dll
 /home/bro/.nuget/packages/tmds.dbus.protocol/0.92.0/lib/net9.0/Tmds.DBus.Protocol.dll
 /usr/share/dotnet/packs/Microsoft.NETCore.App.Ref/10.0.8/ref/net10.0/WindowsBase.dll

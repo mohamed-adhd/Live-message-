@@ -362,3 +362,4 @@
 /home/bro/my-creations/live-message-app/live-messagge-app/bin/Debug/net10.0/MimeKit.dll
 /home/bro/my-creations/live-message-app/live-messagge-app/bin/Debug/net10.0/System.Security.Cryptography.Pkcs.dll
 /home/bro/my-creations/live-message-app/live-messagge-app/bin/Debug/net10.0/runtimes/win/lib/net10.0/System.Security.Cryptography.Pkcs.dll
+/home/bro/my-creations/live-message-app/live-messagge-app/bin/Debug/net10.0/Tmds.DBus.dll
