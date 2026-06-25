@@ -4,6 +4,7 @@ using System.Net.Sockets;
 using System.Text;
 using System.Text.Json;
 using System.Text.Encodings.Web;
+using System.IO;
 namespace live_message_app.Services;
 using static System.Console;
 
@@ -37,26 +38,22 @@ public class Network
     }
     public void sendpacket(packet tempo)
     {
-        string json = JsonSerializer.Serialize(tempo);
-        byte[] data=Encoding.UTF8.GetBytes(json);
+        string json = JsonSerializer.Serialize(tempo) + "\n";
+        byte[] data = Encoding.UTF8.GetBytes(json);
         NetworkStream stream = _client.GetStream();
         stream.Write(data);
 
     }
-
     public packet start_recieving()
     {
         NetworkStream stream = _client.GetStream();
-        byte[] buffer = new byte[4096];
-        while (true)
-        {
-            int bytes = stream.Read(buffer, 0, buffer.Length);
-            string tempo = Encoding.UTF8.GetString(buffer,0,bytes);
-            WriteLine("packet broadcasted:");
-            WriteLine(tempo);
-            packet ? p =JsonSerializer.Deserialize<packet>(tempo);
-            return p;
-        }
+        using var reader = new StreamReader(stream, Encoding.UTF8, leaveOpen: true);
+
+        string? line = reader.ReadLine();
+        Console.WriteLine("packet broadcasted:");
+        Console.WriteLine(line);
+
+        return JsonSerializer.Deserialize<packet>(line);
     }
 }
 

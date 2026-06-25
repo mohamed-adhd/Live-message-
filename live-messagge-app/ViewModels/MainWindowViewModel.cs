@@ -31,7 +31,15 @@ public partial class MainWindowViewModel : ObservableObject
             {
                 while (Connected)
                 {
-                    var p = network.start_recieving();
+                    packet p=new();
+                    try
+                    {
+                        p = network.start_recieving();
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine(ex);
+                    }
                     
                     if (p.Type == "message")
                     {
@@ -63,7 +71,7 @@ public partial class MainWindowViewModel : ObservableObject
                     }else if (p.Type == "accepted")
                     {
                         Accepted = random.Next();
-                        Db.addmsg("hey lets chat !",p.From,p.To,0);
+                        Db.add_friends(p.From, p.To);
                     }
                 }
             });
