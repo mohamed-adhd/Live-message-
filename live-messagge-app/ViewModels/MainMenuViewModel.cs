@@ -157,6 +157,7 @@ public partial class MainMenuViewModel : ViewModelBase
         _main.Db.delete_invite(i);
         PendingInvites.Remove(i);
         _main.Db.delete_invite(i);
+        _main.Db.addmsg("hey lets chat !",i.from_id,i.to_id,0);
         Messageslist = _main.Db.Fetchmessages(_main.Id);
         Flist = _main.Db.Fetchfriends(Messageslist, _main.Id);
         PendingInvites = _main.Db.fetch_invites(_main.Id);

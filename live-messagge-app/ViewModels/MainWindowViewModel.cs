@@ -63,6 +63,7 @@ public partial class MainWindowViewModel : ObservableObject
                     }else if (p.Type == "accepted")
                     {
                         Accepted = random.Next();
+                        Db.addmsg("hey lets chat !",p.From,p.To,0);
                     }
                 }
             });
