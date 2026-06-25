@@ -5,6 +5,7 @@ using CommunityToolkit.Mvvm.ComponentModel;
 using live_message_app.Services;
 using live_message_app.Views;
 namespace live_message_app.ViewModels;
+using Tmds.DBus.Protocol;
 using System.Text;
 using System.Threading.Tasks;
 public partial class MainWindowViewModel : ObservableObject
