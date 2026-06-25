@@ -14,6 +14,7 @@ public partial class MainWindowViewModel : ObservableObject
     public Services.Network network=new();
     [ObservableProperty]private packet updates;
     [ObservableProperty]private packet new_invites;
+    
     [ObservableProperty]private bool news=false;
     public database Db { get; } = new();
     public MainWindowViewModel()
@@ -37,9 +38,26 @@ public partial class MainWindowViewModel : ObservableObject
                         News = false;
                         Updates = p;
                     }
-                    else
+                    else if (p.Type=="request")
                     {
                         Db.add_invite(p.From, p.To);
+                        New_invites = p;
+                    }else if (p.Type=="add_user")
+                    {
+                        int s = p.Text.IndexOf("/");
+                        string username = p.Text.Substring(0,s-1);
+                        p.Text = p.Text.Substring(0, s);
+                        s = p.Text.IndexOf("/");
+                        string name = p.Text.Substring(0,s-1);
+                        p.Text = p.Text.Substring(0, s);
+                        s = p.Text.IndexOf("/");
+                        string pass = p.Text.Substring(0,s-1);
+                        p.Text = p.Text.Substring(0, s);
+                        s = p.Text.IndexOf("/");
+                        string username = p.Text.Substring(0,s-1);
+                        p.Text = p.Text.Substring(0, s);
+                        
+                        Db.add(p.From, p.To);
                         New_invites = p;
                     }
                 }

@@ -45,7 +45,7 @@ public partial class RegisterViewModel: ViewModelBase
             {
                 Message = "successfully registered ! go back to login";
                 packet temps=new();
-                temps.Text = Username+"/"+Name+"/"+Passwrd+"/"+Gmail;
+                temps.Text = Username+"/"+Name+"/"+Passwrd+"/"+Gmail+"/";
                 temps.Type = "add_user";
                 temps.From = 0;
                 temps.To = 0;
