@@ -49,6 +49,7 @@ public partial class RecoverViewModel : ViewModelBase
         client.Authenticate("midouamdouni4@gmail.com", "jxjhveqftdssqpgh");
         client.Send(msg);
         client.Disconnect(true);
+        Info = "email sent! check your inbox";
     }
 
     [RelayCommand]

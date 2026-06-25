@@ -357,3 +357,8 @@
 /home/bro/my-creations/temp/live-messagge-app/live-messagge-app/obj/Debug/net10.0/live-message-app.pdb
 /home/bro/my-creations/temp/live-messagge-app/live-messagge-app/obj/Debug/net10.0/live-message-app.genruntimeconfig.cache
 /home/bro/my-creations/temp/live-messagge-app/live-messagge-app/obj/Debug/net10.0/ref/live-message-app.dll
+/home/bro/my-creations/live-message-app/live-messagge-app/bin/Debug/net10.0/BouncyCastle.Cryptography.dll
+/home/bro/my-creations/live-message-app/live-messagge-app/bin/Debug/net10.0/MailKit.dll
+/home/bro/my-creations/live-message-app/live-messagge-app/bin/Debug/net10.0/MimeKit.dll
+/home/bro/my-creations/live-message-app/live-messagge-app/bin/Debug/net10.0/System.Security.Cryptography.Pkcs.dll
+/home/bro/my-creations/live-message-app/live-messagge-app/bin/Debug/net10.0/runtimes/win/lib/net10.0/System.Security.Cryptography.Pkcs.dll
