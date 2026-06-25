@@ -40,5 +40,8 @@ build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
 [/home/bro/my-creations/live-message-app/live-messagge-app/Views/MainWindow.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
 
+[/home/bro/my-creations/live-message-app/live-messagge-app/Views/recover.axaml]
+build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
+
 [/home/bro/my-creations/live-message-app/live-messagge-app/Views/register.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml

@@ -2,9 +2,8 @@
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:vm="using:live_message_app.ViewModels"
-    x:Class="live_message_app.Views.LoginView"
-    x:DataType="vm:LoginViewModel">
-
+    x:Class="live_message_app.Views.recover"
+    x:DataType="vm:RecoverViewModel">
     <UserControl.Styles>
         <Style Selector="TextBox">
             <Setter Property="Foreground" Value="White"/>
@@ -13,11 +12,10 @@
         <Style Selector="Button.primary:pointerover /template/ ContentPresenter">
             <Setter Property="Background" Value="#4F46E5"/>
         </Style>
-        <Style Selector="Button.secondary:pointerover /template/ ContentPresenter">
-            <Setter Property="Background" Value="#1A2744"/>
-        </Style>
     </UserControl.Styles>
+
     <Grid Background="#0B1020">
+
         <Border HorizontalAlignment="Center"
                 VerticalAlignment="Center"
                 Background="#16213E"
@@ -25,30 +23,44 @@
                 Padding="40,36"
                 Width="360">
             <StackPanel Spacing="0">
-                <TextBlock Text="Welcome back"
+
+                <Border Width="48" Height="48"
+                        CornerRadius="24"
+                        Background="#1A2744"
+                        HorizontalAlignment="Center"
+                        Margin="0,0,0,16">
+                    <TextBlock Text="🔑"
+                               FontSize="22"
+                               HorizontalAlignment="Center"
+                               VerticalAlignment="Center"/>
+                </Border>
+
+                <TextBlock Text="Forgot password?"
                            FontSize="22"
                            FontWeight="Bold"
                            Foreground="White"
                            HorizontalAlignment="Center"/>
-                <TextBlock Text="sign in to continue"
+                <TextBlock Text="we'll send you password info to your gmail"
                            FontSize="13"
                            Foreground="#64748B"
                            HorizontalAlignment="Center"
+                           TextAlignment="Center"
                            Margin="0,4,0,28"/>
 
-                <!-- Error message -->
-                <Border IsVisible="{Binding !Found}"
-                        Background="#2D1515"
-                        BorderBrush="#7F1D1D"
+                <Border IsVisible="{Binding Info, Converter={x:Static StringConverters.IsNotNullOrEmpty}}"
+                        Background="#0D1829"
+                        BorderBrush="#1A2744"
                         BorderThickness="1"
                         CornerRadius="8"
                         Padding="12,8"
                         Margin="0,0,0,16">
-                    <TextBlock Text="incorrect username or password"
-                               Foreground="#FCA5A5"
+                    <TextBlock Text="{Binding Info}"
+                               Foreground="#94A3B8"
                                FontSize="13"
-                               HorizontalAlignment="Center"/>
+                               HorizontalAlignment="Center"
+                               TextWrapping="Wrap"/>
                 </Border>
+
                 <TextBlock Text="Username"
                            Foreground="#94A3B8"
                            FontSize="12"
@@ -59,22 +71,11 @@
                          BorderBrush="#1A2744"
                          CornerRadius="8"
                          Padding="12,10"
-                         Margin="0,0,0,16"/>
-                <TextBlock Text="Password"
-                           Foreground="#94A3B8"
-                           FontSize="12"
-                           Margin="0,0,0,6"/>
-                <TextBox Text="{Binding Password}"
-                         PlaceholderText="••••••••"
-                         PasswordChar="•"
-                         Background="#0D1829"
-                         BorderBrush="#1A2744"
-                         CornerRadius="8"
-                         Padding="12,10"
                          Margin="0,0,0,24"/>
+
                 <Button Classes="primary"
-                        Content="Sign in"
-                        Command="{Binding CheckLoginCommand}"
+                        Content="Send recovery email"
+                        Command="{Binding SendRecoveryCommand}"
                         HorizontalAlignment="Stretch"
                         HorizontalContentAlignment="Center"
                         Background="#6366F1"
@@ -83,17 +84,9 @@
                         Padding="0,11"
                         FontSize="14"
                         FontWeight="Medium"/>
-                <Button Classes="secondary"
-                        Content="don't have an account? register"
-                        Command="{Binding GoToRegisterCommand}"
-                        HorizontalAlignment="Center"
-                        Background="Transparent"
-                        Foreground="#64748B"
-                        FontSize="12"
-                        Margin="0,16,0,0"/>
-                <Button Classes="secondary"
-                        Content="forgot password?"
-                        Command="{Binding GoToRecoverCommand}"
+
+                <Button Content="back to sign in"
+                        Command="{Binding GoToLoginCommand}"
                         HorizontalAlignment="Center"
                         Background="Transparent"
                         Foreground="#64748B"
@@ -102,12 +95,6 @@
 
             </StackPanel>
         </Border>
-        <TextBlock Text="{Binding Connection_status}"
-                   HorizontalAlignment="Left"
-                   VerticalAlignment="Bottom"
-                   Foreground="#475569"
-                   FontSize="11"
-                   Margin="12"/>
+
     </Grid>
-    
 </UserControl>

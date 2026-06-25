@@ -29,7 +29,10 @@
             <views:MainMenu/>
             
         </DataTemplate>
-        
+        <DataTemplate DataType="{x:Type vm:RecoverViewModel}">
+            <views:recover/>
+            
+        </DataTemplate>
         
     </Application.DataTemplates>    
              

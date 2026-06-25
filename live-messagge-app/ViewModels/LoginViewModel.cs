@@ -33,6 +33,11 @@ public partial class LoginViewModel : ViewModelBase
         _main.Currentpage = new RegisterViewModel(_main);
     }
     [RelayCommand]
+    private void GoToRecover()
+    {
+        _main.Currentpage = new RecoverViewModel(_main);
+    }
+    [RelayCommand]
     private void CheckLogin()
     {
         Console.WriteLine("DEBUG: button was clicked");
