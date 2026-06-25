@@ -75,6 +75,10 @@
             "Microsoft.Data.Sqlite": {
               "target": "Package",
               "version": "[10.0.9, )"
+            },
+            "Tmds.DBus": {
+              "target": "Package",
+              "version": "[0.94.2, )"
             }
           },
           "imports": [

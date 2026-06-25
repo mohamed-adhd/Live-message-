@@ -918,6 +918,19 @@
           }
         }
       },
+      "Tmds.DBus/0.94.2": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0/Tmds.DBus.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/Tmds.DBus.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "Tmds.DBus.Protocol/0.92.0": {
         "type": "package",
         "compile": {
@@ -2127,6 +2140,23 @@
         "useSharedDesignerContext.txt"
       ]
     },
+    "Tmds.DBus/0.94.2": {
+      "sha512": "7tKdC4X6yhGnAFyRmZ4OAAF9pVccZ0qn+2tYZfDlF2B8I74ehXBedhtd74nM4J5vapDew/5hlXdhtAnqdeKsIA==",
+      "type": "package",
+      "path": "tmds.dbus/0.94.2",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "icon_128.png",
+        "lib/net6.0/Tmds.DBus.dll",
+        "lib/net6.0/Tmds.DBus.xml",
+        "lib/netstandard2.0/Tmds.DBus.dll",
+        "lib/netstandard2.0/Tmds.DBus.xml",
+        "tmds.dbus.0.94.2.nupkg.sha512",
+        "tmds.dbus.nuspec"
+      ]
+    },
     "Tmds.DBus.Protocol/0.92.0": {
       "sha512": "h7IMakm0PF2jxiagoysoAjrzzLQ0UBdnSXQL5kb17YW0Fvyo12Tg96A99QkzwktWRrd7H+Uw9EzjasNLUfGYlA==",
       "type": "package",
@@ -2160,7 +2190,8 @@
       "AvaloniaUI.DiagnosticsSupport >= 2.2.1",
       "CommunityToolkit.Mvvm >= 8.4.1",
       "MailKit >= 4.17.0",
-      "Microsoft.Data.Sqlite >= 10.0.9"
+      "Microsoft.Data.Sqlite >= 10.0.9",
+      "Tmds.DBus >= 0.94.2"
     ]
   },
   "packageFolders": {
@@ -2237,6 +2268,10 @@
           "Microsoft.Data.Sqlite": {
             "target": "Package",
             "version": "[10.0.9, )"
+          },
+          "Tmds.DBus": {
+            "target": "Package",
+            "version": "[0.94.2, )"
           }
         },
         "imports": [
