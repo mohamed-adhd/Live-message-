@@ -156,6 +156,7 @@ public partial class MainMenuViewModel : ViewModelBase
         _main.Db.add_friends(i.from_id,i.to_id);
         _main.Db.delete_invite(i);
         PendingInvites.Remove(i);
+        _main.Db.delete_invite(i);
         Messageslist = _main.Db.Fetchmessages(_main.Id);
         Flist = _main.Db.Fetchfriends(Messageslist, _main.Id);
         PendingInvites = _main.Db.fetch_invites(_main.Id);
