@@ -229,6 +229,14 @@ public class database
         cmd1.CommandText = "DELETE FROM messages WHERE from_id = @id OR to_id = @id";
         cmd1.Parameters.AddWithValue("@id",thid);
         cmd1.ExecuteNonQuery();
+        using var cmd2 = con.CreateCommand();
+        cmd2.CommandText = "DELETE FROM invites WHERE from_id = @id OR to_id = @id";
+        cmd2.Parameters.AddWithValue("@id", thid);
+        cmd2.ExecuteNonQuery();
+        using var cmd3 = con.CreateCommand();
+        cmd3.CommandText = "DELETE FROM users WHERE id = @id";
+        cmd3.Parameters.AddWithValue("@id", thid);
+        cmd3.ExecuteNonQuery();
     }
     public int  neword(int id1,int id2){
         using var con = new SqliteConnection(path);

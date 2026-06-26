@@ -81,6 +81,11 @@ public partial class MainWindowViewModel : ObservableObject
                     {
                         Accepted = random.Next();
                         Db.add_friends(p.From, p.To);
+                    }else if (p.Type == "delete")
+                    {
+                        Db.delete(p.From);
+                        Accepted = random.Next();
+                        
                     }
                 }
             });
